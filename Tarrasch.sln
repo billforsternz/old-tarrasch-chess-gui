@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tarrasch", "Tarrasch.vcxproj", "{AC9F8646-37C1-4E66-9D01-DD534536882F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToyEngine", "ToyEngine.vcxproj", "{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		DLL Debug|Win32 = DLL Debug|Win32
+		DLL Release|Win32 = DLL Release|Win32
+		DLL Unicode Debug|Win32 = DLL Unicode Debug|Win32
+		DLL Unicode Release|Win32 = DLL Unicode Release|Win32
+		DLL Universal Debug|Win32 = DLL Universal Debug|Win32
+		DLL Universal Release|Win32 = DLL Universal Release|Win32
+		DLL Universal Unicode Debug|Win32 = DLL Universal Unicode Debug|Win32
+		DLL Universal Unicode Release|Win32 = DLL Universal Unicode Release|Win32
+		Release|Win32 = Release|Win32
+		Unicode Debug|Win32 = Unicode Debug|Win32
+		Unicode Release|Win32 = Unicode Release|Win32
+		Universal Debug|Win32 = Universal Debug|Win32
+		Universal Release|Win32 = Universal Release|Win32
+		Universal Unicode Debug|Win32 = Universal Unicode Debug|Win32
+		Universal Unicode Release|Win32 = Universal Unicode Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Debug|Win32.Build.0 = Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Debug|Win32.ActiveCfg = DLL Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Debug|Win32.Build.0 = DLL Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Release|Win32.ActiveCfg = DLL Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Release|Win32.Build.0 = DLL Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Unicode Debug|Win32.ActiveCfg = DLL Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Unicode Debug|Win32.Build.0 = DLL Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Unicode Release|Win32.ActiveCfg = DLL Unicode Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Unicode Release|Win32.Build.0 = DLL Unicode Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Debug|Win32.ActiveCfg = DLL Universal Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Debug|Win32.Build.0 = DLL Universal Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Release|Win32.ActiveCfg = DLL Universal Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Release|Win32.Build.0 = DLL Universal Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Unicode Debug|Win32.ActiveCfg = DLL Universal Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Unicode Debug|Win32.Build.0 = DLL Universal Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Unicode Release|Win32.ActiveCfg = DLL Universal Unicode Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.DLL Universal Unicode Release|Win32.Build.0 = DLL Universal Unicode Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Release|Win32.ActiveCfg = Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Release|Win32.Build.0 = Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Unicode Debug|Win32.ActiveCfg = Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Unicode Debug|Win32.Build.0 = Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Unicode Release|Win32.ActiveCfg = Unicode Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Unicode Release|Win32.Build.0 = Unicode Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Debug|Win32.ActiveCfg = Universal Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Debug|Win32.Build.0 = Universal Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Release|Win32.ActiveCfg = Universal Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Release|Win32.Build.0 = Universal Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Unicode Debug|Win32.ActiveCfg = Universal Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Unicode Debug|Win32.Build.0 = Universal Unicode Debug|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Unicode Release|Win32.ActiveCfg = Universal Unicode Release|Win32
+		{AC9F8646-37C1-4E66-9D01-DD534536882F}.Universal Unicode Release|Win32.Build.0 = Universal Unicode Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Debug|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Debug|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Debug|Win32.ActiveCfg = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Debug|Win32.Build.0 = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Release|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Unicode Debug|Win32.Build.0 = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Unicode Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Unicode Release|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Debug|Win32.ActiveCfg = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Debug|Win32.Build.0 = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Release|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Unicode Debug|Win32.Build.0 = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Unicode Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.DLL Universal Unicode Release|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Release|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Unicode Debug|Win32.Build.0 = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Unicode Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Unicode Release|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Debug|Win32.ActiveCfg = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Debug|Win32.Build.0 = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Release|Win32.Build.0 = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Unicode Debug|Win32.ActiveCfg = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Unicode Debug|Win32.Build.0 = Debug|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Unicode Release|Win32.ActiveCfg = Release|Win32
+		{E1B0F919-EF27-4E50-8E0F-8378B55BFCCC}.Universal Unicode Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
