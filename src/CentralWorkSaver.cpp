@@ -200,7 +200,7 @@ void CentralWorkSaver::SaveFile( bool prompt, FILE_MODE fm, bool save_as )
                         wxFileName::SplitPath( fd.GetPath(), &dir, NULL, NULL );
                         objs.repository->nv.m_doc_dir = dir;
                         wxString wx_filename = fd.GetPath();
-                        std::string filename = wx_filename.c_str();
+                        std::string filename = wx_filename.c_str().AsChar();
                         if( !::wxFileExists(wx_filename ) )
                         {
                             if( fm == FILE_EXISTS_GAME_NEW )
@@ -276,7 +276,7 @@ void CentralWorkSaver::SaveFile( bool prompt, FILE_MODE fm, bool save_as )
                     objs.repository->nv.m_doc_dir = dir;
                     gd->game_nbr = 0;
                     wxString wx_filename = fd.GetPath();
-                    std::string filename = wx_filename.c_str();
+                    std::string filename = wx_filename.c_str().AsChar();
 
                     // If it's a new file, create with single game
                     if( !::wxFileExists( wx_filename ) )
