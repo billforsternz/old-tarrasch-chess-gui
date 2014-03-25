@@ -4,8 +4,8 @@ old-tarrasch-chess-gui
 The Tarrasch Chess GUI V2. No longer work in progress, but a working useful chess program.
 New Tarrasch development is occurring in peer repository tarrasch-chess-gui
 
-Build Notes            Bill Forster 12Mar2010 (updated for V2, 7Jan2012)
-===========            =================================================
+Build Notes - Bill Forster 12Mar2010 (updated for V2, 7Jan2012)
+==============================================================
 
 Rebuilding Tarrasch from the source code delivery package is not rocket 
 science, but it probably will take some application and patience, even 
