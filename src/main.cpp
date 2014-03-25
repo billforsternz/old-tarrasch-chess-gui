@@ -159,6 +159,8 @@ public:
         void OnUpdateEditDelete( wxUpdateUIEvent &);
     void OnEditGameDetails (wxCommandEvent &);
         void OnUpdateEditGameDetails( wxUpdateUIEvent &);
+    void OnEditCopyGamePGNToClipboard (wxCommandEvent &);
+        void OnUpdateEditCopyGamePGNToClipboard(wxUpdateUIEvent &);
     void OnEditPromote (wxCommandEvent &);
         void OnUpdateEditPromote( wxUpdateUIEvent &);
     void OnEditDemote (wxCommandEvent &);
@@ -342,6 +344,8 @@ BEGIN_EVENT_TABLE(ChessFrame, wxFrame)
         EVT_UPDATE_UI (wxID_DELETE,                     ChessFrame::OnUpdateEditDelete)
     EVT_MENU (ID_EDIT_GAME_DETAILS,         ChessFrame::OnEditGameDetails)        
         EVT_UPDATE_UI (ID_EDIT_GAME_DETAILS,            ChessFrame::OnUpdateEditGameDetails)
+    EVT_MENU(ID_COPY_GAME_PGN_TO_CLIPBOARD,              ChessFrame::OnEditCopyGamePGNToClipboard)
+        EVT_UPDATE_UI(ID_COPY_GAME_PGN_TO_CLIPBOARD,                 ChessFrame::OnUpdateEditCopyGamePGNToClipboard)
     EVT_MENU (ID_EDIT_PROMOTE,              ChessFrame::OnEditPromote)        
         EVT_UPDATE_UI (ID_EDIT_PROMOTE,                 ChessFrame::OnUpdateEditPromote)
     EVT_MENU (ID_EDIT_DEMOTE,               ChessFrame::OnEditDemote)    
@@ -401,17 +405,18 @@ ChessFrame::ChessFrame(const wxString& title, const wxPoint& pos, const wxSize& 
 
     // Menu - Edit
     wxMenu *menu_edit     = new wxMenu;
-    menu_edit->Append (wxID_COPY,                    _T("Copy\tCtrl+C"));
-    menu_edit->Append (wxID_CUT,                     _T("Cut\tCtrl+X"));
-    menu_edit->Append (wxID_PASTE,                   _T("Paste\tCtrl+V"));
-    menu_edit->Append (wxID_UNDO,                    _T("Undo\tCtrl+Z"));
-    menu_edit->Append (wxID_REDO,                    _T("Redo\tCtrl+Y"));
-    menu_edit->Append (wxID_DELETE,                  _T("Delete comment text or remainder of variation\tDel"));
-    menu_edit->Append (ID_EDIT_GAME_DETAILS,         _T("Edit game details"));
-    menu_edit->Append (ID_EDIT_PROMOTE,              _T("Promote variation"));
-    menu_edit->Append (ID_EDIT_DEMOTE,               _T("Demote variation"));
-    menu_edit->Append (ID_EDIT_DEMOTE_TO_COMMENT,    _T("Demote rest of variation to comment"));
-    menu_edit->Append (ID_EDIT_PROMOTE_TO_VARIATION, _T("Promote comment to variation"));
+    menu_edit->Append (wxID_COPY,                         _T("Copy\tCtrl+C"));
+    menu_edit->Append (wxID_CUT,                          _T("Cut\tCtrl+X"));
+    menu_edit->Append (wxID_PASTE,                        _T("Paste\tCtrl+V"));
+    menu_edit->Append (wxID_UNDO,                         _T("Undo\tCtrl+Z"));
+    menu_edit->Append (wxID_REDO,                         _T("Redo\tCtrl+Y"));
+    menu_edit->Append (wxID_DELETE,                       _T("Delete comment text or remainder of variation\tDel"));
+    menu_edit->Append (ID_EDIT_GAME_DETAILS,              _T("Edit game details"));
+    menu_edit->Append (ID_COPY_GAME_PGN_TO_CLIPBOARD,     _T("Copy game to clipboard (PGN)"));
+    menu_edit->Append (ID_EDIT_PROMOTE,                   _T("Promote variation"));
+    menu_edit->Append (ID_EDIT_DEMOTE,                    _T("Demote variation"));
+    menu_edit->Append (ID_EDIT_DEMOTE_TO_COMMENT,         _T("Demote rest of variation to comment"));
+    menu_edit->Append (ID_EDIT_PROMOTE_TO_VARIATION,      _T("Promote comment to variation"));
     menu_edit->Append (ID_EDIT_PROMOTE_REST_TO_VARIATION, _T("Promote rest of comment to variation"));
 
     // Menu - Games
@@ -967,6 +972,11 @@ void ChessFrame::OnEditGameDetails (wxCommandEvent &)
     objs.gl->CmdEditGameDetails();
 }
 
+void ChessFrame::OnEditCopyGamePGNToClipboard(wxCommandEvent &)
+{
+    objs.gl->CmdEditCopyGamePGNToClipboard();
+}
+
 void ChessFrame::OnEditPromote (wxCommandEvent &)
 {
     objs.gl->CmdEditPromote();
@@ -1077,6 +1087,12 @@ void ChessFrame::OnUpdateEditDelete( wxUpdateUIEvent &event )
 }
 
 void ChessFrame::OnUpdateEditGameDetails( wxUpdateUIEvent &event )
+{
+    bool enabled = true;
+    event.Enable(enabled);
+}
+
+void ChessFrame::OnUpdateEditCopyGamePGNToClipboard(wxUpdateUIEvent &event)
 {
     bool enabled = true;
     event.Enable(enabled);
@@ -1197,7 +1213,7 @@ void ChessFrame::OnPlayWhite (wxCommandEvent &)
 
 void ChessFrame::OnPlayBlack (wxCommandEvent &)
 {
-    objs.gl->CmdPlayWhite();
+    objs.gl->CmdPlayBlack();
 }
 
 void ChessFrame::OnSwapSides (wxCommandEvent &)

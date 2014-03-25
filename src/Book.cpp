@@ -949,8 +949,8 @@ bool Book::Compile( wxString &error_msg, wxString &compile_msg, wxString &pgn_fi
                                      wxPD_CAN_ABORT+
                                      wxPD_ESTIMATED_TIME );
     bool error = false;
-    const char *pgn_in = pgn_file.c_str();
-    const char *pgn_compiled_out = pgn_compiled_file.c_str();
+    const char *pgn_in = pgn_file.c_str().AsChar();
+    const char *pgn_compiled_out = pgn_compiled_file.c_str().AsChar();
     FILE *outfile = NULL;
     FILE *infile  = fopen( pgn_in, "rt" );
     #ifdef REGENERATE
@@ -1013,11 +1013,11 @@ bool Book::Compile( wxString &error_msg, wxString &compile_msg, wxString &pgn_fi
                 wxString label = predefined_labels[i];
                 ui = label.Len();
                 fwrite( &ui, sizeof(ui), 1, outfile );
-                fwrite( label.c_str(), label.Len(), 1, outfile );
+                fwrite( label.c_str().AsChar(), label.Len(), 1, outfile );
                 wxString fen = predefined_fens[i];
                 ui = fen.Len();
                 fwrite( &ui, sizeof(ui), 1, outfile );
-                fwrite( fen.c_str(), fen.Len(), 1, outfile );
+                fwrite( fen.c_str().AsChar(), fen.Len(), 1, outfile );
             }
             ChessRules cr2;
             for( int i=0; i<BOOK_HASH_NBR; i++ )
@@ -1117,7 +1117,7 @@ bool Book::LoadCompiled( wxString &error_msg, wxString &pgn_compiled_file )
         bucket[i].clear();
     predefined_labels.clear();
     predefined_fens.clear();
-    const char *pgn_compiled_in = pgn_compiled_file.c_str();
+    const char *pgn_compiled_in = pgn_compiled_file.c_str().AsChar();
     FILE *infile  = fopen( pgn_compiled_in, "rb" );
     if( infile == NULL )
     {

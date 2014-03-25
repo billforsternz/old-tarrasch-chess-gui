@@ -835,7 +835,8 @@ const char *Rybka::user_hook_in()
                             {
                                 custom1_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom1a.c_str(), rep->m_custom1b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", 
+                                    rep->m_custom1a.c_str().AsChar(), rep->m_custom1b.c_str().AsChar() );
                             }
                         }
                         break;
@@ -849,7 +850,8 @@ const char *Rybka::user_hook_in()
                             {
                                 custom2_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom2a.c_str(), rep->m_custom2b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", 
+                                    rep->m_custom2a.c_str().AsChar(), rep->m_custom2b.c_str().AsChar() );
                             }
                         }
                         break;
@@ -863,7 +865,8 @@ const char *Rybka::user_hook_in()
                             {
                                 custom3_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom3a.c_str(), rep->m_custom3b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", 
+                                    rep->m_custom3a.c_str().AsChar(), rep->m_custom3b.c_str().AsChar() );
                             }
                         }
                         break;
@@ -877,7 +880,8 @@ const char *Rybka::user_hook_in()
                             {
                                 custom4_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom4a.c_str(), rep->m_custom4b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", 
+                                    rep->m_custom4a.c_str().AsChar(), rep->m_custom4b.c_str().AsChar() );
                             }
                         }
                         break;
@@ -901,7 +905,7 @@ const char *Rybka::user_hook_in()
             if( gbl_smoves.Len() == 0 )
                 sprintf( buf, "position %s", gbl_forsyth );
             else
-                sprintf( buf, "position %s moves%s", gbl_forsyth, gbl_smoves.c_str() );
+                sprintf( buf, "position %s moves%s", gbl_forsyth, gbl_smoves.c_str().AsChar() );
             s = buf;
             NewState( "user_hook_in()", SEND_PLAY_ENGINE4 );
             break;
@@ -1015,7 +1019,7 @@ const char *Rybka::user_hook_in()
                             {
                                 custom1_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom1a.c_str(), rep->m_custom1b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom1a.c_str().AsChar(), rep->m_custom1b.c_str() );
                             }
                         }
                         break;
@@ -1029,7 +1033,7 @@ const char *Rybka::user_hook_in()
                             {
                                 custom2_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom2a.c_str(), rep->m_custom2b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom2a.c_str().AsChar(), rep->m_custom2b.c_str().AsChar() );
                             }
                         }
                         break;
@@ -1043,7 +1047,7 @@ const char *Rybka::user_hook_in()
                             {
                                 custom3_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom3a.c_str(), rep->m_custom3b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom3a.c_str().AsChar(), rep->m_custom3b.c_str().AsChar() );
                             }
                         }
                         break;
@@ -1057,7 +1061,7 @@ const char *Rybka::user_hook_in()
                             {
                                 custom4_first = false;
                                 found_something_to_send = true;
-                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom4a.c_str(), rep->m_custom4b.c_str() );
+                                sprintf( option_buf, "setoption name %s value %s", rep->m_custom4a.c_str().AsChar(), rep->m_custom4b.c_str().AsChar() );
                             }
                         }
                         break;
@@ -1327,6 +1331,12 @@ void Rybka::OptionIn( const char *s )
 
     // max_cpu_cores
     parm = str_pattern_smart(s,"nbr|number|max|maximum*processors|cpus|cores");
+    if (!parm)
+    {
+        // alternative check for StockFish, which also has "Max Threads per Split Point",
+        // and str_pattern_smart() isn't quite smart enough to discriminate ;)
+        parm = str_pattern(s, "Threads", true);
+    }
     if( parm && str_search(parm,"type spin",true) )
     {
         memset( max_cpu_cores_name, 0, sizeof(max_cpu_cores_name) );
@@ -1467,6 +1477,10 @@ const char *str_pattern_smart( const char *str, const char *pattern )
 */
     char buf_str[128];
     char buf_pattern[128];
+
+    memset(buf_str, 0, sizeof(buf_str));
+    memset(buf_pattern, 0, sizeof(buf_pattern));
+    
     int c='\0', d;
     bool ultimate_success = false;
     bool skip=false;
