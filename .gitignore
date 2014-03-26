@@ -11,3 +11,11 @@
 *.lai
 *.la
 *.a
+
+# Visual Studio artifacts
+Release
+Debug
+*.sdf
+*.suo
+vc_msw
+vc_mswd
