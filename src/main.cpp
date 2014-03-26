@@ -1197,7 +1197,7 @@ void ChessFrame::OnPlayWhite (wxCommandEvent &)
 
 void ChessFrame::OnPlayBlack (wxCommandEvent &)
 {
-    objs.gl->CmdPlayWhite();
+    objs.gl->CmdPlayBlack();
 }
 
 void ChessFrame::OnSwapSides (wxCommandEvent &)
