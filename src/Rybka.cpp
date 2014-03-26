@@ -1327,6 +1327,12 @@ void Rybka::OptionIn( const char *s )
 
     // max_cpu_cores
     parm = str_pattern_smart(s,"nbr|number|max|maximum*processors|cpus|cores");
+    if (!parm)
+    {
+        // alternative check for StockFish, which also has "Max Threads per Split Point",
+        // and str_pattern_smart() isn't quite smart enough to discriminate ;)
+        parm = str_pattern(s, "Threads", true);
+    }
     if( parm && str_search(parm,"type spin",true) )
     {
         memset( max_cpu_cores_name, 0, sizeof(max_cpu_cores_name) );

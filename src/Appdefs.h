@@ -81,7 +81,8 @@ enum
     ID_ANNOT18,
     ID_ANNOT19,
     ID_ANNOT20,
-    ID_CMD_ABOUT = wxID_ABOUT   // important for possible Mac port that we use this apparently
+    ID_CMD_ABOUT = wxID_ABOUT,   // important for possible Mac port that we use this apparently
+    ID_COPY_GAME_PGN_TO_CLIPBOARD
 };
 
 //-----------------------------------------------------------------------------

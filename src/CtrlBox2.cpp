@@ -23,7 +23,7 @@ BEGIN_EVENT_TABLE( CtrlBox2, wxTextCtrl )
     EVT_SET_CURSOR(CtrlBox2::OnSetCursor)
     EVT_LEFT_DOWN (CtrlBox2::OnMouseLeftDown)
 //    EVT_MOTION (CtrlBox2::OnMouseMove)
-    EVT_ERASE_BACKGROUND(CtrlBox2::OnEraseBackground)
+    EVT_ERASE_BACKGROUND(CtrlBox2::OnEraseBackGround)
 //    EVT_TIMER( TIMER_ID, CtrlBox2::OnTimeout)
 END_EVENT_TABLE()
 
