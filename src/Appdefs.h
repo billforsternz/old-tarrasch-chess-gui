@@ -9,7 +9,7 @@
 
 #include "wx/wx.h"
 
-#define MASTER_VERSION "V2.02a working"
+#define MASTER_VERSION "V2.02br working"
 #define DEFAULT_ENGINE "Rybka v2.3.2a.mp.w32.exe"
 // #define MASTER_VERSION "V2.01ar"
 // #define DEFAULT_ENGINE "Rybka v2.3.2a.mp.w32.exe"
@@ -81,7 +81,8 @@ enum
     ID_ANNOT18,
     ID_ANNOT19,
     ID_ANNOT20,
-    ID_CMD_ABOUT = wxID_ABOUT   // important for possible Mac port that we use this apparently
+    ID_CMD_ABOUT = wxID_ABOUT,   // important for possible Mac port that we use this apparently
+    ID_COPY_GAME_PGN_TO_CLIPBOARD
 };
 
 //-----------------------------------------------------------------------------
