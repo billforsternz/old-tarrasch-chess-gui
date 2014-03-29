@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=Tarrasch Chess GUI
-AppVerName=Tarrasch Chess GUI V2.00b
+AppVerName=Tarrasch Chess GUI V2.02br
 AppPublisher=Triple Happy Ltd.
 AppPublisherURL=http://www.triplehappy.com
 AppSupportURL=http://www.triplehappy.com
@@ -29,6 +29,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 [Files]
 Source: "C:\Users\Bill\Documents\T2\install\Tarrasch.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\TarraschToyEngine.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
+Source: "C:\Users\Bill\Documents\T2\install\Rybka v2.3.2a.mp.w32.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\komodo3-32.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\komodo3-64.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\komodo3-64-sse.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
