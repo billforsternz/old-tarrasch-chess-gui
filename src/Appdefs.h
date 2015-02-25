@@ -9,7 +9,7 @@
 
 #include "wx/wx.h"
 
-#define MASTER_VERSION "V2.02br working"
+#define MASTER_VERSION "V2.02br"
 #define DEFAULT_ENGINE "Rybka v2.3.2a.mp.w32.exe"
 // #define MASTER_VERSION "V2.01ar"
 // #define DEFAULT_ENGINE "Rybka v2.3.2a.mp.w32.exe"
