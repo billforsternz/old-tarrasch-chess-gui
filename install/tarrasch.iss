@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=Tarrasch Chess GUI
-AppVerName=Tarrasch Chess GUI V2.02br
+AppVerName=Tarrasch Chess GUI V2.03a
 AppPublisher=Triple Happy Ltd.
 AppPublisherURL=http://www.triplehappy.com
 AppSupportURL=http://www.triplehappy.com
@@ -33,6 +33,10 @@ Source: "C:\Users\Bill\Documents\T2\install\Rybka v2.3.2a.mp.w32.exe"; DestDir: 
 Source: "C:\Users\Bill\Documents\T2\install\komodo3-32.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\komodo3-64.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\komodo3-64-sse.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
+Source: "C:\Users\Bill\Documents\T2\install\stockfish-6-64.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
+Source: "C:\Users\Bill\Documents\T2\install\stockfish-6-32.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
+Source: "C:\Users\Bill\Documents\T2\install\Houdini_15a_w32.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
+Source: "C:\Users\Bill\Documents\T2\install\Houdini_15a_x64.exe"; DestDir: "{app}\Engines"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\book.pgn"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Bill\Documents\T2\install\book.pgn_compiled"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
