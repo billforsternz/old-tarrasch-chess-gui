@@ -746,7 +746,7 @@ void ChessFrame::OnCredits(wxCommandEvent& WXUNUSED(event))
         "\n\n"
         "Thanks to the engine authors who provided explicit permission to "
         "include their engines. In chronological order, Vasik Rajlich (Rybka), "
-        "Don Dailey and Larry Kaufman (Komodo), and Robert Houdart (Houdini)"
+        "Don Dailey and Larry Kaufman (Komodo), and Robert Houdart (Houdini)."
         "\n\n"
         "Thanks to the Stockfish team, Stockfish is now the default engine. "
         "Permission to include Stockfish is inherent in its licence, as long "
