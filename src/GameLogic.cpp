@@ -3163,6 +3163,50 @@ void GameLogic::KibitzUpdate( int idx, const char *txt )
         while( *s == ' ' )
             s++;
         mate = atoi(s);    // eg mate=2, mate=-2
+
+
+        // This is the ugliest workaround in the world
+        #ifdef  MATE_IN_ZERO_ENGINE_BUG_WORKAROUND
+        if( mate == 0 )
+        {
+
+            // Added because Engine Fire-64 says score mate 0 presumably indicating that it wants the GUI to
+            //  to calculate how many moves to mate. Try to improve mate=0 to eg mate=-2 (we are being mated in 2)
+            s = strstr(txt,temp=" pv ");
+            if( s )
+            {
+                const char *txt = s+strlen(temp);
+                int ply_count=0;
+                while( *txt  )
+                {
+                    if( *txt == ' ' )
+                        txt++;
+                    else
+                    {
+
+                        // Start of token, normally a move
+                        if( 0 != memcmp(txt,"NUM ", 4) )  // but check for this special case
+                            ply_count++;
+                        else
+                        {
+                            txt += 4;
+                            ply_count = atoi(txt);
+                            break;
+                        }
+                        while( *txt && *txt != ' ' )  // skip over token
+                            txt++;
+                    }
+                }
+
+                // If number of plies to mate is odd, that is positive from the Engine's perspective
+                if( (ply_count%2) == 1 )   // if( odd )
+                    mate = (ply_count/2) + 1;       // mate after one of our moves, so +ve
+                else
+                    mate = 0 - (ply_count/2);       // mate after one of their moves, so -ve
+                
+            }
+        } // end of if mate==0 FIRE-64 addition
+        #endif
         if( mate > 0 )
             rank_score_cp = 100000 - mate;  // eg rank_score_cp = 99998
         else if( mate < 0 )
