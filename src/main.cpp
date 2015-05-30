@@ -416,12 +416,12 @@ ChessFrame::ChessFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     menu_edit->Append (ID_EDIT_PROMOTE,              _T("Promote variation"));
     menu_edit->Append (ID_EDIT_DEMOTE,               _T("Demote variation"));
     menu_edit->Append (ID_EDIT_DEMOTE_TO_COMMENT,    _T("Demote rest of variation to comment"));
-    menu_edit->Append (ID_EDIT_PROMOTE_TO_VARIATION, _T("Promote comment to variation"));
-    menu_edit->Append (ID_EDIT_PROMOTE_REST_TO_VARIATION, _T("Promote rest of comment to variation"));
+    menu_edit->Append (ID_EDIT_PROMOTE_TO_VARIATION, _T("Promote comment to moves"));
+    menu_edit->Append (ID_EDIT_PROMOTE_REST_TO_VARIATION, _T("Promote rest of comment to moves"));
 
     // Menu - Games
     wxMenu *menu_games   = new wxMenu;
-    menu_games->Append (ID_FILE_CURRENT,        _T("Current file"));
+    menu_games->Append (ID_FILE_CURRENT,        _T("Current file\tCtrl+L"));
     menu_games->Append (ID_FILE_SESSION,        _T("Session"));
     menu_games->Append (ID_FILE_CLIPBOARD,      _T("Clipboard"));
     menu_games->AppendSeparator();
@@ -735,7 +735,7 @@ void ChessFrame::OnCredits(wxCommandEvent& WXUNUSED(event))
         "Lukasz Berezowski, Eric Ziegler, Laurence Dayton, Albrecht Schmidt, "
         "Lloyd Standish and David Beagan."
         "\n\n"
-        "Tester: Iliya Kristoff."
+        "Foundation tester: Iliya Kristoff."
         "\n\n"
         "Thanks to David L Brown and the Good Companions for the chess "
         "graphics."
@@ -744,8 +744,14 @@ void ChessFrame::OnCredits(wxCommandEvent& WXUNUSED(event))
         "\n\n"
         "Thanks to Yusuke Kamiyamane for some of the toolbar icons."
         "\n\n"
-        "Thanks to Vasik Rajlich, the first engine author to grant "
-        "permission to include a strong engine with Tarrasch."
+        "Thanks to the engine authors who provided explicit permission to "
+        "include their engines. In chronological order, Vasik Rajlich (Rybka), "
+        "Don Dailey and Larry Kaufman (Komodo), and Robert Houdart (Houdini)"
+        "\n\n"
+        "Thanks to the Stockfish team, Stockfish is now the default engine. "
+        "Permission to include Stockfish is inherent in its licence, as long "
+        "as the location of the Stockfish source code is provided. The "
+        "location is https://stockfishchess.org." 
         "\n\n"
         "Thanks to Inno Setup from Jordan Russell (jrsoftware.org), for "
         "the setup program."
