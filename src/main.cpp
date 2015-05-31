@@ -411,13 +411,13 @@ ChessFrame::ChessFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     menu_edit->Append (wxID_UNDO,                    _T("Undo\tCtrl+Z"));
     menu_edit->Append (wxID_REDO,                    _T("Redo\tCtrl+Y"));
     menu_edit->Append (wxID_DELETE,                  _T("Delete comment text or remainder of variation\tDel"));
-    menu_edit->Append (ID_EDIT_GAME_DETAILS,         _T("Edit game details"));
+    menu_edit->Append (ID_EDIT_GAME_DETAILS,         _T("Edit game details\tF2"));
     menu_edit->Append (ID_COPY_GAME_PGN_TO_CLIPBOARD,     _T("Copy game to system clipboard (PGN)"));
     menu_edit->Append (ID_EDIT_PROMOTE,              _T("Promote variation"));
     menu_edit->Append (ID_EDIT_DEMOTE,               _T("Demote variation"));
-    menu_edit->Append (ID_EDIT_DEMOTE_TO_COMMENT,    _T("Demote rest of variation to comment"));
+    menu_edit->Append (ID_EDIT_DEMOTE_TO_COMMENT,    _T("Demote rest of variation to comment\tAlt-D"));
     menu_edit->Append (ID_EDIT_PROMOTE_TO_VARIATION, _T("Promote comment to moves"));
-    menu_edit->Append (ID_EDIT_PROMOTE_REST_TO_VARIATION, _T("Promote rest of comment to moves"));
+    menu_edit->Append (ID_EDIT_PROMOTE_REST_TO_VARIATION, _T("Promote rest of comment to moves\tAlt-P"));
 
     // Menu - Games
     wxMenu *menu_games   = new wxMenu;
