@@ -9,7 +9,7 @@
 
 #include "wx/wx.h"
 
-#define MATE_IN_ZERO_ENGINE_BUG_WORKAROUND
+//#define MATE_IN_ZERO_ENGINE_BUG_WORKAROUND
 #ifdef  MATE_IN_ZERO_ENGINE_BUG_WORKAROUND
 #define MASTER_VERSION "V2.03a + Mate in zero engine bug workaround"
 #else
