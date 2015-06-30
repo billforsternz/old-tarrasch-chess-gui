@@ -210,6 +210,23 @@ Rybka::Rybka( const char *filename_uci_exe )
     gbl_state = INIT;
     debug_trigger = false;
 
+    // Check to make sure we are not trying to run 64 bit engine on 32 bit windows
+    extern boolean Is64BitWindows();
+    if( !Is64BitWindows() )
+    {
+        DWORD program_type;
+        BOOL is_exe; 
+        is_exe = GetBinaryType( filename_uci_exe, &program_type );
+        if( is_exe && program_type==SCS_64BIT_BINARY )
+        {
+            wxString caption( "Error running UCI engine" );
+            wxString detail ( "It is not possible to run a 64 bit UCI engine on a 32 bit Windows system\r\n"
+                              "Suggestion: Use the Options> Engine menu and Browse button to find a 32 bit engine instead\r\n" );
+            wxMessageBox( detail, caption, wxOK|wxICON_ERROR );
+            return;
+        }
+    }
+
     sa.lpSecurityDescriptor = NULL;
     sa.nLength = sizeof(SECURITY_ATTRIBUTES);
     sa.bInheritHandle = true;         //allow inheritable handles
@@ -1226,8 +1243,8 @@ void Rybka::line_out( const char *s )
         }
         case KIBITZING:
         {
-            if( strstr(s," multipv 3 ") )
-                DebugPrintf(( "Break here"));
+            // if( strstr(s," multipv 3 ") )
+            //    DebugPrintf(( "Break here"));
             if( 0==memcmp(s,"info ",5) && strstr(s," pv ") )
             {
                 int idx = 0; // first attempt at V2 used 0, changed to -1 for when

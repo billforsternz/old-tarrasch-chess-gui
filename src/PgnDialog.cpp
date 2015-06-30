@@ -76,7 +76,7 @@ void PgnDialog::Init()
     entries[2].Set(wxACCEL_CTRL,  (int) 'V',     wxID_PASTE);
     entries[3].Set(wxACCEL_CTRL,  (int) 'A',     wxID_SELECTALL);
     entries[4].Set(wxACCEL_NORMAL,  WXK_DELETE,  wxID_DELETE);
-    wxAcceleratorTable accel(4, entries);
+    wxAcceleratorTable accel(5, entries);
     SetAcceleratorTable(accel);
 }
 

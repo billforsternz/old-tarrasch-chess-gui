@@ -9,8 +9,14 @@
 
 #include "wx/wx.h"
 
-#define MASTER_VERSION "V2.02a working"
-#define DEFAULT_ENGINE "Rybka v2.3.2a.mp.w32.exe"
+//#define MATE_IN_ZERO_ENGINE_BUG_WORKAROUND
+#ifdef  MATE_IN_ZERO_ENGINE_BUG_WORKAROUND
+#define MASTER_VERSION "V2.03b + Mate in zero engine bug workaround"
+#else
+#define MASTER_VERSION "V2.03b"
+#endif
+#define DEFAULT_ENGINE "stockfish-6-32.exe"
+#define DEFAULT_ENGINE_64 "stockfish-6-64.exe"  // new with V2.03a
 // #define MASTER_VERSION "V2.01ar"
 // #define DEFAULT_ENGINE "Rybka v2.3.2a.mp.w32.exe"
 // #define MASTER_VERSION "V2.01ak"         // for Komodo version
