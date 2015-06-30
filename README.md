@@ -4,6 +4,17 @@ old-tarrasch-chess-gui
 The Tarrasch Chess GUI V2. No longer work in progress, but a working useful chess program.
 New Tarrasch development is occurring in peer repository tarrasch-chess-gui
 
+Note the existence of branches named for releases published on www.triplehappy.com.
+For example: V2.03b for a June 2015 release.
+
+Note also the existence of branch unicode_build_by_ralph_moritz. This was the
+master for a long time and I only merged my changes (from eg V2.03b) back to
+master on June 30th 2015.
+
+Also note that I've now added instructions (in directory install) on how
+to create distributions of type setup.exe and portable.zip once you have managed
+to build Tarrasch.exe (for which, see below).
+
 Build Notes - Bill Forster 12Mar2010 (updated for V2, 7Jan2012)
 ==============================================================
 
