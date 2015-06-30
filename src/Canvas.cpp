@@ -808,7 +808,7 @@ void Canvas::BookUpdate( bool suppress )
             txt = "1 book move";
         else
             txt.Printf( "%d book moves", n );
-        DebugPrintf(( "Book moves updated: %s\n", txt.c_str().AsChar() ));
+        DebugPrintf(( "Book moves updated: %s\n", txt.c_str() ));
         book_moves->Show(true);
         book_moves->SetTxt(txt);
     }
@@ -965,7 +965,7 @@ void Canvas::Kibitz( int idx, const wxString &txt )
             if( str_kibitz1 != txt )
             {
                 str_kibitz1 = txt;
-                DebugPrintfInner( "kibitz1 = %s\n", txt.c_str().AsChar() );
+                DebugPrintfInner( "kibitz1 = %s\n", txt.c_str() );
                 //kibitz1->SetLabel(txt);
                 kibitz_ctrl->SetItem( 1, 0, txt );
             }
@@ -976,7 +976,7 @@ void Canvas::Kibitz( int idx, const wxString &txt )
             if( str_kibitz2 != txt )
             {
                 str_kibitz2 = txt;
-                DebugPrintfInner( "kibitz2 = %s\n", txt.c_str().AsChar() );
+                DebugPrintfInner( "kibitz2 = %s\n", txt.c_str() );
                 //kibitz2->SetLabel(txt);
                 kibitz_ctrl->SetItem( 2, 0, txt );
             }
@@ -987,7 +987,7 @@ void Canvas::Kibitz( int idx, const wxString &txt )
             if( str_kibitz3 != txt )
             {
                 str_kibitz3 = txt;
-                DebugPrintfInner( "kibitz3 = %s\n", txt.c_str().AsChar() );
+                DebugPrintfInner( "kibitz3 = %s\n", txt.c_str() );
                 //kibitz3->SetLabel(txt);
                 kibitz_ctrl->SetItem( 3, 0, txt );
             }
@@ -998,7 +998,7 @@ void Canvas::Kibitz( int idx, const wxString &txt )
             if( str_kibitz4 != txt )
             {
                 str_kibitz4 = txt;
-                DebugPrintfInner( "kibitz4 = %s\n", txt.c_str().AsChar() );
+                DebugPrintfInner( "kibitz4 = %s\n", txt.c_str() );
                 //kibitz4->SetLabel(txt);
                 extern bool gbl_small_screen_detected;
                 if( !gbl_small_screen_detected )      // on a small screen show only 3
