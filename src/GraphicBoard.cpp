@@ -44,7 +44,7 @@ void DebugPrintfInner( const char *fmt, ... )
 	va_list stk;
 	va_start( stk, fmt );
 	vsnprintf( strchr(buf,'\0'), sizeof(buf)-2, fmt, stk );
-    //#define DEBUG_TO_LOG_FILE
+    #define DEBUG_TO_LOG_FILE
     #ifdef  DEBUG_TO_LOG_FILE
     {
         wxStandardPathsBase& stdp = wxStandardPaths::Get();

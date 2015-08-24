@@ -3136,8 +3136,7 @@ void GameLogic::KibitzUpdate( int idx, const char *txt )
     bool have_moves=false;
     Move candidate_move;
     candidate_move.Invalid();
-    static int depth=0;
-    int score_cp=0, rank_score_cp=0;
+    int depth=0, score_cp=0, rank_score_cp=0;
     ChessRules cr = gd.master_position;
     const char *s, *temp;
     s = strstr(txt,temp=" depth ");

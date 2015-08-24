@@ -1241,24 +1241,44 @@ void Rybka::line_out( const char *s )
         {
             // if( strstr(s," multipv 3 ") )
             //    DebugPrintf(( "Break here"));
-            if( 0==memcmp(s,"info ",5) && strstr(s," pv ") )
+            if( 0==memcmp(s,"info ",5) )
             {
-                int idx = 0; // first attempt at V2 used 0, changed to -1 for when
-                             //  attempting fix for Komodo special edition,
-                             //  back to 0 June 2012, allows Kibitzing with Strelka
-                             //  which doesn't have multipv
-                if( strstr(s," multipv 1 ") )
-                    idx = 0;
-                else if( strstr(s," multipv 2 ") )
-                    idx = 1;
-                else if( strstr(s," multipv 3 ") )
-                    idx = 2;
-                else if( strstr(s," multipv 4 ") )
-                    idx = 3;
-                if( idx >= 0 )
+                static int static_depth;
+                const char *s_depth = strstr(s," depth ");
+                if( s_depth )
                 {
-                    kq[idx].Put(s+4);
-                    DebugPrintf(( "Kibitz info(%d):%s\n", idx, s+4 ));
+                    s_depth += 7;
+                    while( *s_depth == ' ' )
+                        s_depth++;
+                    static_depth = atoi(s_depth);
+                }
+                if( strstr(s," pv ") )
+                {
+                    int idx = 0; // first attempt at V2 used 0, changed to -1 for when
+                                 //  attempting fix for Komodo special edition,
+                                 //  back to 0 June 2012, allows Kibitzing with Strelka
+                                 //  which doesn't have multipv
+                    if( strstr(s," multipv 1 ") )
+                        idx = 0;
+                    else if( strstr(s," multipv 2 ") )
+                        idx = 1;
+                    else if( strstr(s," multipv 3 ") )
+                        idx = 2;
+                    else if( strstr(s," multipv 4 ") )
+                        idx = 3;
+                    if( idx >= 0 )
+                    {
+                        if( s_depth )
+                        {
+                            kq[idx].Put(s+4);
+                            DebugPrintf(( "Kibitz info(%d):%s\n", idx, s+4 ));
+                        }
+                        else
+                        {
+                            kq[idx].Put(s+4,static_depth);
+                            DebugPrintf(( "Kibitz info(%d): depth=%d %s\n", idx, static_depth, s+4 ));
+                        }
+                    }
                 }
             }
             break;
