@@ -15,6 +15,7 @@
 #include "GameDetailsDialog.h"
 #include "GameLogic.h"
 #include "Objects.h"
+#include "Repository.h"
 #include "PgnFiles.h"
 #include "PgnDialog.h"
 #include <iostream>
@@ -33,6 +34,7 @@ BEGIN_EVENT_TABLE( PgnDialog, wxDialog )
     EVT_BUTTON( wxID_CANCEL,            PgnDialog::OnCancel )
     EVT_BUTTON( ID_BOARD2GAME,          PgnDialog::OnBoard2Game )
     EVT_CHECKBOX( ID_REORDER,           PgnDialog::OnRenumber )
+    EVT_RADIOBUTTON( ID_SITE_EVENT,     PgnDialog::OnSiteEvent )
     EVT_BUTTON( ID_ADD_TO_CLIPBOARD,    PgnDialog::OnAddToClipboard )
     EVT_BUTTON( ID_SAVE_ALL_TO_A_FILE,  PgnDialog::OnSaveAllToAFile )
     EVT_BUTTON( ID_PGN_DIALOG_GAME_DETAILS,   PgnDialog::OnEditGameDetails )
@@ -141,8 +143,8 @@ int wxCALLBACK sort_callback( long item1, long item2, long col )
                                                 break;
         case 5: s1=ptr_gds[item1].date; 
                 s2=ptr_gds[item2].date;         break;
-        case 6: s1=ptr_gds[item1].site;
-                s2=ptr_gds[item2].site;         break;
+        case 6: s1 = objs.repository->nv.m_event_not_site ? ptr_gds[item1].event : ptr_gds[item1].site;
+                s2 = objs.repository->nv.m_event_not_site ? ptr_gds[item2].event : ptr_gds[item2].site;         break;
 //      case 7: fflag = true;
 //              f1=atof(ptr_gds[item1].round.c_str());
 //              f2=atof(ptr_gds[item2].round.c_str());
@@ -212,7 +214,7 @@ void PgnDialog::CreateControls()
     list_ctrl->InsertColumn( 3, "Black"    );
     list_ctrl->InsertColumn( 4, "Elo B"    );
     list_ctrl->InsertColumn( 5, "Date"     );
-    list_ctrl->InsertColumn( 6, "Site"     );
+    list_ctrl->InsertColumn( 6, "Site/Event"     );
     list_ctrl->InsertColumn( 7, "Round"    );
     list_ctrl->InsertColumn( 8, "Result"   );
     list_ctrl->InsertColumn( 9, "ECO"      );
@@ -330,7 +332,7 @@ void PgnDialog::CreateControls()
         list_ctrl->SetItem( i, 3, gc->gds[i].black );
         list_ctrl->SetItem( i, 4, gc->gds[i].black_elo );
         list_ctrl->SetItem( i, 5, gc->gds[i].date );
-        list_ctrl->SetItem( i, 6, gc->gds[i].site );
+        list_ctrl->SetItem( i, 6, objs.repository->nv.m_event_not_site ? gc->gds[i].event : gc->gds[i].site );
         list_ctrl->SetItem( i, 7, gc->gds[i].round );
         list_ctrl->SetItem( i, 8, gc->gds[i].result=="*"?"":gc->gds[i].result );
         list_ctrl->SetItem( i, 9, gc->gds[i].eco );
@@ -539,6 +541,16 @@ void PgnDialog::CreateControls()
             wxDefaultPosition, wxDefaultSize, 0 );
         button_box2->Add(help, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);    
     }
+
+    // Select site/or event
+    wxRadioButton *site_button = new wxRadioButton( this, ID_SITE_EVENT,
+       wxT("&Site"), wxDefaultPosition, wxDefaultSize,  wxRB_GROUP );
+    wxRadioButton *event_button = new wxRadioButton( this, ID_SITE_EVENT,
+       wxT("&Event"), wxDefaultPosition, wxDefaultSize, 0 );
+    site_button->SetValue( !objs.repository->nv.m_event_not_site );
+    event_button->SetValue( objs.repository->nv.m_event_not_site );
+    button_box2->Add(site_button, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
+    button_box2->Add(event_button, 0, wxALIGN_CENTER_VERTICAL|wxALL, 5);
 }
 
 // Set the validators for the dialog controls
@@ -796,13 +808,22 @@ void PgnDialog::OnBoard2Game( wxCommandEvent& WXUNUSED(event) )
             list_ctrl->SetItem( idx_focus, 3, gd.black );
             list_ctrl->SetItem( idx_focus, 4, gd.black_elo );
             list_ctrl->SetItem( idx_focus, 5, gd.date );
-            list_ctrl->SetItem( idx_focus, 6, gd.site );
+            list_ctrl->SetItem( idx_focus, 6, objs.repository->nv.m_event_not_site ? gd.event : gd.site );
             list_ctrl->SetItem( idx_focus, 7, gd.round );
             list_ctrl->SetItem( idx_focus, 8, gd.result );
             list_ctrl->SetItem( idx_focus, 9, gd.eco );
             list_ctrl->SetItem( idx_focus,10, gd.moves_txt );
         }
     }
+}
+
+void PgnDialog::OnSiteEvent( wxCommandEvent& WXUNUSED(event) )
+{
+    int gds_nbr = gc->gds.size();
+    objs.repository->nv.m_event_not_site = !objs.repository->nv.m_event_not_site;
+    for( int i=0; i<gds_nbr; i++ )    
+        list_ctrl->SetItem( i, 6, objs.repository->nv.m_event_not_site ? gc->gds[i].event : gc->gds[i].site );
+    list_ctrl->RefreshItems( 0, gds_nbr-1 );
 }
 
 void PgnDialog::OnRenumber( wxCommandEvent& WXUNUSED(event) )
@@ -842,7 +863,7 @@ void PgnDialog::OnEditGameDetails( wxCommandEvent& WXUNUSED(event) )
             list_ctrl->SetItem( idx, 3, gc->gds[idx].black );
             list_ctrl->SetItem( idx, 4, gc->gds[idx].black_elo );
             list_ctrl->SetItem( idx, 5, gc->gds[idx].date );
-            list_ctrl->SetItem( idx, 6, gc->gds[idx].site );
+            list_ctrl->SetItem( idx, 6, objs.repository->nv.m_event_not_site ? gc->gds[idx].event : gc->gds[idx].site );
             list_ctrl->SetItem( idx, 7, gc->gds[idx].round );
             list_ctrl->SetItem( idx, 8, gc->gds[idx].result );
             list_ctrl->SetItem( idx, 9, gc->gds[idx].eco );
@@ -1033,7 +1054,7 @@ void PgnDialog::OnPaste( wxCommandEvent& WXUNUSED(event) )
             list_ctrl->SetItem( idx_focus, 3, gc_clipboard->gds[i].black );
             list_ctrl->SetItem( idx_focus, 4, gc_clipboard->gds[i].black_elo );
             list_ctrl->SetItem( idx_focus, 5, gc_clipboard->gds[i].date );
-            list_ctrl->SetItem( idx_focus, 6, gc_clipboard->gds[i].site );
+            list_ctrl->SetItem( idx_focus, 6, objs.repository->nv.m_event_not_site ? gc_clipboard->gds[i].event : gc_clipboard->gds[i].site );
             list_ctrl->SetItem( idx_focus, 7, gc_clipboard->gds[i].round );
             list_ctrl->SetItem( idx_focus, 8, gc_clipboard->gds[i].result );
             list_ctrl->SetItem( idx_focus, 9, gc_clipboard->gds[i].eco );

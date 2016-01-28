@@ -15,8 +15,8 @@
 #else
 #define MASTER_VERSION "V2.03c"
 #endif
-#define DEFAULT_ENGINE "stockfish-6-32.exe"
-#define DEFAULT_ENGINE_64 "stockfish-6-64.exe"  // new with V2.03a
+#define DEFAULT_ENGINE "stockfish 7 32bit.exe"
+#define DEFAULT_ENGINE_64 "stockfish 7 x64.exe"  // new with V2.03a
 // #define MASTER_VERSION "V2.01ar"
 // #define DEFAULT_ENGINE "Rybka v2.3.2a.mp.w32.exe"
 // #define MASTER_VERSION "V2.01ak"         // for Komodo version

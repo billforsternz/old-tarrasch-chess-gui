@@ -518,7 +518,10 @@ void GameLogic::CmdFileOpenInner( std::string &filename )
     else
     {
         bool have_game = false;
-        if( gc.gds.size()==1 && objs.repository->general.m_straight_to_game )
+        if(
+            ( gc.gds.size()==1 && objs.repository->general.m_straight_to_game )  ||
+            ( gc.gds.size()>0  && objs.repository->general.m_straight_to_first_game )
+          )
         {
             GameDocument *gd_file = &gc.gds[0];
             have_game = gd_file->in_memory;

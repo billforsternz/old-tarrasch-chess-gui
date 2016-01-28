@@ -167,6 +167,7 @@ struct GeneralConfig
     wxString    m_notation_language;
     bool        m_no_italics;
     bool        m_straight_to_game;
+    bool        m_straight_to_first_game;
     bool        m_small_board;
     bool        m_large_font;
     bool        m_no_auto_flip;
@@ -175,6 +176,7 @@ struct GeneralConfig
         m_notation_language  = "KQRNB (English)";
         m_no_italics         = false;
         m_straight_to_game   = false;
+        m_straight_to_first_game   = false;
         m_small_board        = false;
         m_large_font         = false;
         m_no_auto_flip       = false;
@@ -200,6 +202,7 @@ struct NonVolatile
     int         m_col9;
     int         m_col10;
     wxString    m_doc_dir;
+    bool        m_event_not_site;
     NonVolatile()
     {
         m_x = -1;
@@ -218,6 +221,7 @@ struct NonVolatile
         m_col9 = -1;
         m_col10 = -1;
         m_doc_dir = "";
+        m_event_not_site = false;
     }
 };
 

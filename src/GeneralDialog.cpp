@@ -147,6 +147,13 @@ void GeneralDialog::CreateControls()
     box_sizer->Add( straight_to_game_box, 0,
         wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
+    // Go straight to game for all pgns
+    wxCheckBox* straight_to_first_game_box = new wxCheckBox( this, ID_STRAIGHT_TO_FIRST_GAME,
+       wxT("Go straight to first game for all .pgn files"), wxDefaultPosition, wxDefaultSize, 0 );
+    straight_to_first_game_box->SetValue( dat.m_straight_to_first_game );
+    box_sizer->Add( straight_to_first_game_box, 0,
+        wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
     // No auto flip at start of game or on swap sides
     wxCheckBox* no_auto_flip = new wxCheckBox( this, ID_NO_AUTO_FLIP,
        wxT("Don't flip board to put human at bottom"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -192,6 +199,8 @@ void GeneralDialog::SetDialogValidators()
         wxGenericValidator(& dat.m_no_italics));
     FindWindow(ID_STRAIGHT_TO_GAME)->SetValidator(
         wxGenericValidator(& dat.m_straight_to_game));
+    FindWindow(ID_STRAIGHT_TO_FIRST_GAME)->SetValidator(
+        wxGenericValidator(& dat.m_straight_to_first_game));
     FindWindow(ID_NO_AUTO_FLIP)->SetValidator(
         wxGenericValidator(& dat.m_no_auto_flip));
 }
@@ -208,6 +217,9 @@ void GeneralDialog::SetDialogHelp()
     wxString help3 = "Set this to skip the game selection dialog when a newly opened file has only one game";
     FindWindow(ID_STRAIGHT_TO_GAME)->SetHelpText(help3);
     FindWindow(ID_STRAIGHT_TO_GAME)->SetToolTip(help3);
+    wxString help3b = "Set this to skip the game selection dialog and go straight to the first game";
+    FindWindow(ID_STRAIGHT_TO_FIRST_GAME)->SetHelpText(help3b);
+    FindWindow(ID_STRAIGHT_TO_FIRST_GAME)->SetToolTip(help3b);
     wxString help4 = "Set this to use small board graphics on a large screen (takes effect at next restart)";
     FindWindow(ID_SMALL_BOARD)->SetHelpText(help4);
     FindWindow(ID_SMALL_BOARD)->SetToolTip(help4);

@@ -137,6 +137,7 @@ Repository::Repository( bool use_defaults )
         LangSet(general.m_notation_language);
         ReadBool    ("GeneralNoItalics",                  general.m_no_italics        );
         ReadBool    ("GeneralStraightToGame",             general.m_straight_to_game  );
+        ReadBool    ("GeneralStraightToFirstGame",        general.m_straight_to_first_game  );
         ReadBool    ("GeneralUseSmallBoard",              general.m_small_board   );
         ReadBool    ("GeneralUseLargeFont",               general.m_large_font    );
         ReadBool    ("GeneralNoAutoFlip",                 general.m_no_auto_flip  );
@@ -158,6 +159,7 @@ Repository::Repository( bool use_defaults )
         config->Read("NonVolatileCol9",                   &nv.m_col9 );
         config->Read("NonVolatileCol10",                  &nv.m_col10 );
         config->Read("NonVolatileDocDir",                 &nv.m_doc_dir );
+        ReadBool    ("NonVolatileEventNotSite",            nv.m_event_not_site );
     }
 }
 
@@ -211,6 +213,7 @@ Repository::~Repository()
     config->Write("GeneralNotationLanguage",          general.m_notation_language     );
     config->Write("GeneralNoItalics",                 (int)general.m_no_italics       );
     config->Write("GeneralStraightToGame",            (int)general.m_straight_to_game );
+    config->Write("GeneralStraightToFirstGame",       (int)general.m_straight_to_first_game );
     config->Write("GeneralUseSmallBoard",             (int)general.m_small_board  );
     config->Write("GeneralUseLargeFont",              (int)general.m_large_font   );
     config->Write("GeneralNoAutoFlip",                (int)general.m_no_auto_flip );
@@ -232,6 +235,7 @@ Repository::~Repository()
     config->Write("NonVolatileCol9",                  nv.m_col9 );
     config->Write("NonVolatileCol10",                 nv.m_col10 );
     config->Write("NonVolatileDocDir",                nv.m_doc_dir );
+    config->Write("NonVolatileEventNotSite",          (int)nv.m_event_not_site );
 
     // Engine
     config->Write("EngineExeFile",      engine.m_file   );

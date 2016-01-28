@@ -24,7 +24,8 @@ enum
     ID_PGN_DIALOG_GAME_DETAILS  = 10004,
     ID_REORDER              = 10005,
     ID_ADD_TO_CLIPBOARD     = 10006,
-    ID_SAVE_ALL_TO_A_FILE   = 10007
+    ID_SAVE_ALL_TO_A_FILE   = 10007,
+    ID_SITE_EVENT           = 10008
 };
 
 // PgnDialog class declaration
@@ -87,6 +88,7 @@ public:
 
     void OnBoard2Game( wxCommandEvent& event );
     void OnRenumber( wxCommandEvent& event );
+    void OnSiteEvent( wxCommandEvent& event );
     void OnSelectAll( wxCommandEvent& event );
     void OnEditGameDetails( wxCommandEvent& event );
     void OnCopy( wxCommandEvent& event );
