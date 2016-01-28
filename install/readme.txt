@@ -4,8 +4,8 @@ Instructions for building distributable packages.
 2) Open tarrasch.iss with the (free, wonderful) innosetup program and use the
 Build/Compile command from the menu. You will need a full complement of engines
 in an Engines subdirectory beneath this one to avoid errors.
-3) Once successful, rename the new setup.exe appropriately, eg to setup-tarrasch-v2.03b.exe.
+3) Once successful, rename the new setup.exe appropriately, eg to setup-tarrasch-v2.03c.exe.
 4) Make sure file install.zip doesn't exist in this directory.
 5) Select Tarrasch.exe, Tarrasch.ini (empty file), book.pgn, and the Engines subdirectory
 Right click and choose 7zip "Add to install.zip".
-6) Rename install.zip appropriately, eg to portable-tarrasch-v2.03b.zip.
+6) Rename install.zip appropriately, eg to portable-tarrasch-v2.03c.zip.
