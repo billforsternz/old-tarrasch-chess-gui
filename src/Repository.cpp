@@ -141,6 +141,7 @@ Repository::Repository( bool use_defaults )
         ReadBool    ("GeneralUseSmallBoard",              general.m_small_board   );
         ReadBool    ("GeneralUseLargeFont",               general.m_large_font    );
         ReadBool    ("GeneralNoAutoFlip",                 general.m_no_auto_flip  );
+        ReadBool    ("GeneralEmitBellWhenEngineMoves",    general.m_bell  );
 
         // NonVolatile
         config->Read("NonVolatileX",                      &nv.m_x );
@@ -217,6 +218,7 @@ Repository::~Repository()
     config->Write("GeneralUseSmallBoard",             (int)general.m_small_board  );
     config->Write("GeneralUseLargeFont",              (int)general.m_large_font   );
     config->Write("GeneralNoAutoFlip",                (int)general.m_no_auto_flip );
+    config->Write("GeneralEmitBellWhenEngineMoves",   (int)general.m_bell  );
 
     // NonVolatile
     config->Write("NonVolatileX",                     nv.m_x );

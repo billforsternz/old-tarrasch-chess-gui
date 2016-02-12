@@ -13,7 +13,7 @@
 #ifdef  MATE_IN_ZERO_ENGINE_BUG_WORKAROUND
 #define MASTER_VERSION "V2.03b + Mate in zero engine bug workaround"
 #else
-#define MASTER_VERSION "V2.03c"
+#define MASTER_VERSION "V2.03cBell"
 #endif
 #define DEFAULT_ENGINE "stockfish 7 32bit.exe"
 #define DEFAULT_ENGINE_64 "stockfish 7 x64.exe"  // new with V2.03a

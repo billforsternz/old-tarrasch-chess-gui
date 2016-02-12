@@ -161,6 +161,13 @@ void GeneralDialog::CreateControls()
     box_sizer->Add( no_auto_flip, 0,
         wxALIGN_CENTER_VERTICAL|wxALL, 5);
 
+    // Emit bell sound when engine moves
+    wxCheckBox* emit_bell_sound_when_engine_moves = new wxCheckBox( this, ID_EMIT_BELL,
+       wxT("Emit bell sound when engine moves"), wxDefaultPosition, wxDefaultSize, 0 );
+    emit_bell_sound_when_engine_moves->SetValue( dat.m_bell );
+    box_sizer->Add( emit_bell_sound_when_engine_moves, 0,
+        wxALIGN_CENTER_VERTICAL|wxALL, 5);
+
     // A dividing line before the OK and Cancel buttons
     wxStaticLine* line = new wxStaticLine ( this, wxID_STATIC,
         wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
@@ -201,6 +208,8 @@ void GeneralDialog::SetDialogValidators()
         wxGenericValidator(& dat.m_straight_to_game));
     FindWindow(ID_STRAIGHT_TO_FIRST_GAME)->SetValidator(
         wxGenericValidator(& dat.m_straight_to_first_game));
+    FindWindow(ID_EMIT_BELL)->SetValidator(
+        wxGenericValidator(& dat.m_bell));
     FindWindow(ID_NO_AUTO_FLIP)->SetValidator(
         wxGenericValidator(& dat.m_no_auto_flip));
 }
@@ -229,6 +238,9 @@ void GeneralDialog::SetDialogHelp()
     wxString help6 = "Set this if you don't want the board to automatically flip around when you start a game as black";
     FindWindow(ID_NO_AUTO_FLIP)->SetHelpText(help6);
     FindWindow(ID_NO_AUTO_FLIP)->SetToolTip(help6);
+    wxString help7 = "Set this if you want the engine to emit a bell sound when it moves in human versus engine games";
+    FindWindow(ID_EMIT_BELL)->SetHelpText(help7);
+    FindWindow(ID_EMIT_BELL)->SetToolTip(help7);
 }
 
 

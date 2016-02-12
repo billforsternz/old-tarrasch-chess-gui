@@ -447,7 +447,7 @@ ChessFrame::ChessFrame(const wxString& title, const wxPoint& pos, const wxSize& 
     menu_commands->Append (ID_CMD_PLAY_WHITE,   _T("Play white"));
     menu_commands->Append (ID_CMD_PLAY_BLACK,   _T("Play black"));
     menu_commands->Append (ID_CMD_SWAP_SIDES,   _T("Swap sides"));
-    menu_commands->Append (ID_CMD_MOVENOW,      _T("Move now"));
+    menu_commands->Append (ID_CMD_MOVENOW,      _T("Move now\tAlt-M"));
 
     // Options
     wxMenu *menu_options = new wxMenu;

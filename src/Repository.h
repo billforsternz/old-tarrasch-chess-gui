@@ -171,12 +171,14 @@ struct GeneralConfig
     bool        m_small_board;
     bool        m_large_font;
     bool        m_no_auto_flip;
+    bool        m_bell;
     GeneralConfig()
     {
         m_notation_language  = "KQRNB (English)";
         m_no_italics         = false;
         m_straight_to_game   = false;
         m_straight_to_first_game   = false;
+        m_bell               = false;
         m_small_board        = false;
         m_large_font         = false;
         m_no_auto_flip       = false;

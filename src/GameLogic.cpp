@@ -11,6 +11,7 @@
 #include "wx/clipbrd.h"
 #include "wx/listctrl.h"
 #include "wx/filename.h"
+#include "wx/utils.h"
 #include "Appdefs.h"
 #include "Canvas.h"
 #include "ChessRules.h"
@@ -1617,6 +1618,8 @@ void GameLogic::OnIdle()
                                                  gd.master_position.WhiteToPlay()?".":"...", nmove.c_str() );
             GAME_RESULT result;
             bool gameover = MakeMove( bestmove, result );
+            if( objs.repository->general.m_bell )
+                wxBell();
             glc.Set( result );
             if( gameover )
             {
@@ -1743,6 +1746,8 @@ void GameLogic::OnIdle()
                                                  gd.master_position.WhiteToPlay()?".":"...", nmove.c_str() );
             GAME_RESULT result;
             bool gameover = MakeMove( move_after_delay, result );
+            if( objs.repository->general.m_bell )
+                wxBell();
             glc.Set( result );
             NewState( gameover ? GAMEOVER : HUMAN );
             if( gameover )
