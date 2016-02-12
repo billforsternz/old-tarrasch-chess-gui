@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=Tarrasch Chess GUI
-AppVerName=Tarrasch Chess GUI V2.03c
+AppVerName=Tarrasch Chess GUI V2.03cBell
 AppPublisher=Triple Happy Ltd.
 AppPublisherURL=http://www.triplehappy.com
 AppSupportURL=http://www.triplehappy.com
