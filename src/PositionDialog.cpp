@@ -767,7 +767,12 @@ void PositionDialog::OnApplyClick( wxCommandEvent& WXUNUSED(event) )
     }
     else
     {
+// #define ALLOW_ILLEGAL_POSITIONS  // feature request Giovanni Di Maria
+#ifdef ALLOW_ILLEGAL_POSITIONS
+        ;
+#else
         legal = cr.IsLegal(reason);
+#endif
         if( !legal )
             IllegalPositionDialog( "FEN Specifies Illegal Position", cr,reason);
     }
@@ -831,7 +836,11 @@ void PositionDialog::OnOkClick( wxCommandEvent& WXUNUSED(event) )
         strcpy( m_pos.squares, bsc->squares );
         ChessRules cr = m_pos;
         ILLEGAL_REASON reason;
+#ifdef ALLOW_ILLEGAL_POSITIONS
+        if( 0 )
+#else
         if( !cr.IsLegal(reason) )
+#endif
         {
             err = true;
             IllegalPositionDialog("Illegal Position", cr,reason);
