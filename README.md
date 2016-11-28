@@ -1,6 +1,11 @@
 old-tarrasch-chess-gui
 ======================
 
+*Please note* This repository has been superceded in every possible way by the
+peer tarrasch-chess-gui repository which replaces it. From November 25 2016
+Tarrasch V2 (this repository) has been retired in favour of Tarrasch V3 (the
+peer repository).
+
 The Tarrasch Chess GUI V2. No longer work in progress, but a working useful chess program.
 New Tarrasch development is occurring in peer repository tarrasch-chess-gui
 

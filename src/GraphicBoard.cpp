@@ -9,6 +9,8 @@
 #include "wx/wx.h"
 #include "wx/image.h"
 #include "wx/file.h"
+#include "wx/filename.h"
+#include "wx/stdpaths.h"
 #include "DebugPrintf.h"
 #include "GraphicBoard.h"
 #include "GameLogic.h"
@@ -42,12 +44,15 @@ void DebugPrintfInner( const char *fmt, ... )
 	va_list stk;
 	va_start( stk, fmt );
 	vsnprintf( strchr(buf,'\0'), sizeof(buf)-2, fmt, stk );
-//  #define DEBUG_TO_LOG_FILE
+    #define DEBUG_TO_LOG_FILE
     #ifdef  DEBUG_TO_LOG_FILE
     {
+        wxStandardPathsBase& stdp = wxStandardPaths::Get();
+        wxString doc_dir = stdp.GetDocumentsDir();            // eg "C:\Program Files\Tarrasch\Tarrasch.exe"
+        wxString name = doc_dir + "//Tarrasch-Debug-Log.txt";
         static FILE *log_file;
         if( log_file == NULL )
-            log_file = fopen("log.txt","wt");
+            log_file = fopen(name.c_str(),"wt");
         if( log_file )
             fwrite( buf, 1, strlen(buf), log_file );
     }
